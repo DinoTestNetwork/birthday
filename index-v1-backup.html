@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#160b1f,#35122f,#120b20);
+ color:white;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ overflow-x:hidden;
+}
+
+.container{
+ width:92%;
+ max-width:500px;
+ text-align:center;
+ padding:30px 20px;
+}
+
+.heart{
+ font-size:70px;
+ animation:beat 1.2s infinite;
+}
+
+h1{
+ font-size:42px;
+ margin:10px 0;
+ background:linear-gradient(90deg,#ff8fc7,#fff,#ff6bb5);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.subtitle{
+ color:#ddd;
+ font-size:17px;
+ margin-bottom:30px;
+}
+
+.card{
+ background:#ffffff12;
+ border:1px solid #ffffff25;
+ backdrop-filter:blur(12px);
+ border-radius:25px;
+ padding:25px;
+ box-shadow:0 15px 50px #0008;
+}
+
+button{
+ border:0;
+ padding:14px 25px;
+ border-radius:30px;
+ font-size:16px;
+ font-weight:bold;
+ background:linear-gradient(90deg,#ff4fa3,#ff79bd);
+ color:white;
+ cursor:pointer;
+ box-shadow:0 8px 25px #ff4fa355;
+}
+
+button:active{
+ transform:scale(.95);
+}
+
+.message{
+ display:none;
+ margin-top:25px;
+ line-height:1.8;
+ color:#eee;
+ animation:fade .8s ease;
+}
+
+.message h2{
+ color:#ff9dce;
+}
+
+.signature{
+ margin-top:20px;
+ color:#ff9dce;
+ font-weight:bold;
+}
+
+.float{
+ position:absolute;
+ font-size:22px;
+ animation:floatUp linear infinite;
+ opacity:.7;
+}
+
+@keyframes beat{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.2)}
+}
+
+@keyframes fade{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes floatUp{
+ from{
+  transform:translateY(110vh) rotate(0deg);
+  opacity:0;
+ }
+ 20%{opacity:.8}
+ to{
+  transform:translateY(-120px) rotate(360deg);
+  opacity:0;
+ }
+}
+
+.confetti{
+ position:fixed;
+ width:8px;
+ height:8px;
+ top:-10px;
+ animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+ to{
+  transform:translateY(110vh) rotate(720deg);
+ }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="heart">❤️</div>
+
+<h1>Happy Birthday!</h1>
+
+<div class="subtitle">
+Untuk seseorang yang spesial ✨
+</div>
+
+<div class="card">
+
+<p>
+Hari ini bukan hari biasa... 🎂
+</p>
+
+<button onclick="openGift()">
+🎁 Buka Hadiah
+</button>
+
+<div class="message" id="message">
+
+<h2>Selamat Ulang Tahun ❤️</h2>
+
+<p>
+Semoga di umur yang baru ini,
+kamu selalu diberikan kebahagiaan,
+kesehatan, dan banyak hal baik.
+</p>
+
+<p>
+Semoga semua impian yang kamu punya
+pelan-pelan bisa menjadi kenyataan.
+Jangan lupa untuk selalu tersenyum
+dan tetap menjadi dirimu sendiri. ✨
+</p>
+
+<p>
+Terima kasih sudah menjadi seseorang
+yang begitu berarti.
+Semoga hari ulang tahunmu
+menjadi salah satu hari yang indah
+untuk kamu ingat. 🎂
+</p>
+
+<div class="signature">
+— From someone who cares about you ❤️
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openGift(){
+
+ document.getElementById("message").style.display="block";
+
+ for(let i=0;i<70;i++){
+
+  const c=document.createElement("div");
+
+  c.className="confetti";
+
+  c.style.left=Math.random()*100+"vw";
+
+  c.style.animationDelay=Math.random()*1.5+"s";
+
+  c.style.transform="rotate("+Math.random()*360+"deg)";
+
+  document.body.appendChild(c);
+
+  setTimeout(()=>c.remove(),4000);
+ }
+}
+
+function createFloat(){
+
+ const items=["❤️","💕","✨","💖","🌸"];
+
+ const el=document.createElement("div");
+
+ el.className="float";
+
+ el.textContent=items[Math.floor(Math.random()*items.length)];
+
+ el.style.left=Math.random()*100+"vw";
+
+ el.style.animationDuration=(5+Math.random()*6)+"s";
+
+ document.body.appendChild(el);
+
+ setTimeout(()=>el.remove(),12000);
+}
+
+setInterval(createFloat,700);
+
+</script>
+
+</body>
+</html>

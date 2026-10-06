@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Birthday ❤️</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#6b205b55,transparent 28%),radial-gradient(circle at 80% 80%,#8d2b7040,transparent 30%),linear-gradient(135deg,#0d0711,#241027,#0d0711);color:#fff;overflow-x:hidden}
+.container{width:92%;max-width:520px;margin:auto;padding:45px 0 70px;text-align:center;position:relative;z-index:2}
+.heart{font-size:62px;animation:beat 1.4s infinite;filter:drop-shadow(0 0 10px #ff4fa3)}
+h1{font-size:40px;margin:10px 0 5px;background:linear-gradient(90deg,#ff72b8,#fff,#ff72b8);-webkit-background-clip:text;color:transparent}
+.subtitle{color:#d9cbd6;margin-bottom:24px}.card{background:#ffffff0c;border:1px solid #ffffff1c;border-radius:24px;padding:22px;margin-bottom:20px;box-shadow:0 8px 25px #0006}
+.photo{width:100%;border-radius:18px;overflow:hidden;background:#ffffff08}.photo img{display:block;width:100%;height:auto}
+button{border:0;padding:13px 19px;margin:6px;border-radius:28px;font-size:15px;font-weight:bold;color:#fff;background:linear-gradient(90deg,#ff4d9f,#ff78bd);box-shadow:0 7px 18px #ff4fa333;cursor:pointer}
+button:active{transform:scale(.96)}
+.envelope-wrap{height:210px;display:flex;align-items:center;justify-content:center;perspective:700px}
+.envelope{position:relative;width:230px;height:145px;background:#d94c91;border-radius:8px;cursor:pointer;box-shadow:0 12px 30px #0006;transition:.6s}
+.envelope:before{content:"";position:absolute;z-index:3;inset:0;background:#ec71ad;clip-path:polygon(0 0,50% 53%,100% 0,100% 100%,0 100%);border-radius:8px}
+.flap{position:absolute;z-index:4;top:0;left:0;width:0;height:0;border-left:115px solid transparent;border-right:115px solid transparent;border-top:78px solid #f28bc0;transform-origin:top;transition:.7s}
+.letter-paper{position:absolute;z-index:2;left:17px;bottom:10px;width:196px;height:120px;background:linear-gradient(145deg,#fffdf9,#f7efe7);color:#6b2450;border-radius:5px;padding:12px;font-size:13px;transition:transform .85s ease,box-shadow .85s ease;box-shadow:0 5px 12px #0003;transform:translateY(72px);border:1px solid #ead9cf}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}.envelope.open .letter-paper{transform:translateY(-78px);z-index:5;box-shadow:0 10px 22px #0004}
+.letter{display:none;text-align:left;line-height:1.8;color:#eee;animation:fade .6s}.letter h2{text-align:center;color:#ff9dcc}
+.gift{display:none;animation:pop .7s}.gift-icon{font-size:80px}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:1}.star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.7;animation:twinkle 2.5s infinite alternate}
+.player{display:flex;align-items:center;justify-content:center;gap:10px}.music-status{color:#cbbccc;font-size:13px}
+.countdown{display:flex;justify-content:center;gap:7px}.time{min-width:62px;padding:10px 4px;background:#ffffff0b;border:1px solid #ffffff16;border-radius:14px}.time b{display:block;font-size:21px;color:#ff9dcc}.time small{color:#aaa}
+.confetti{position:fixed;width:8px;height:8px;top:-15px;z-index:10;animation:fall 3s linear forwards}
+.float{position:fixed;bottom:-40px;font-size:20px;pointer-events:none;z-index:1;animation:floatUp 9s linear forwards}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}@keyframes twinkle{from{opacity:.15;transform:scale(.7)}to{opacity:1;transform:scale(1.5)}}
+@media(max-width:400px){h1{font-size:34px}.envelope{width:210px}.flap{border-left-width:105px;border-right-width:105px}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="container">
+<div class="heart">❤️</div><h1>Happy Birthday</h1><div class="subtitle">Untuk seseorang yang spesial ✨</div>
+
+<div class="card"><div class="photo"><img src="birthday-collage.png" alt="Kolase Happy Birthday"></div></div>
+
+<div class="card">
+<h2>✉️ Ada Surat Untukmu</h2>
+<p style="color:#cfc3ce">Ketuk amplopnya untuk membuka.</p>
+<div class="envelope-wrap">
+<div class="envelope" id="envelope" onclick="openEnvelope()">
+<div class="flap"></div><div class="letter-paper">💌<br><b>Untuk kamu...</b><br>Ada pesan kecil di dalamnya ❤️</div>
+</div></div>
+<div class="letter" id="letter">
+<h2>💌 Untuk Kamu</h2>
+<p>Selamat ulang tahun! 🎂❤️</p>
+<p>Semoga bertambahnya usia membawa lebih banyak kebahagiaan, kesehatan, kesuksesan, dan hal-hal baik dalam hidupmu.</p>
+<p>Semoga semua impian dan harapanmu satu per satu bisa terwujud. Tetap semangat, tetap tersenyum, dan tetap menjadi dirimu sendiri. ✨</p>
+<p>Terima kasih sudah menjadi seseorang yang begitu berarti. Semoga hari ini menjadi hari yang indah untuk kamu ingat. ❤️</p>
+<p style="text-align:center;color:#ff9dcc">With love ❤️</p>
+</div>
+</div>
+
+<div class="card">
+<h2>🎁 Hadiah</h2>
+<p id="giftHint">Buka surat dulu untuk membuka hadiah.</p>
+<div class="gift" id="gift"><div class="gift-icon">🎁</div><h2>✨ Surprise!</h2><p>Semoga hari spesialmu dipenuhi senyum dan kebahagiaan. ❤️</p></div>
+<button onclick="celebrate()">🎉 Rayakan!</button>
+</div>
+
+<div class="card">
+<h2>🎵 Musik</h2>
+<div class="player"><button onclick="toggleMusic()" id="musicBtn">▶️ Putar</button></div>
+<div class="music-status" id="musicStatus">Musik dibuat langsung oleh browser, jadi tidak membutuhkan file lagu.</div>
+</div>
+
+<div class="card">
+<h2>⏳ Menuju Ulang Tahun Berikutnya</h2>
+<div class="countdown">
+<div class="time"><b id="days">0</b><small>Hari</small></div><div class="time"><b id="hours">0</b><small>Jam</small></div><div class="time"><b id="minutes">0</b><small>Menit</small></div><div class="time"><b id="seconds">0</b><small>Detik</small></div>
+</div>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+function openEnvelope(){if($("envelope").classList.contains("open"))return;$("envelope").classList.add("open");setTimeout(()=>{$("letter").style.display="block";$("gift").style.display="block";$("giftHint").style.display="none";$("letter").scrollIntoView({behavior:"smooth",block:"center"})},650);celebrate(45)}
+function celebrate(n=80){for(let i=0;i<n;i++){let c=document.createElement("div");c.className="confetti";c.style.left=Math.random()*100+"vw";c.style.animationDelay=Math.random()*1.1+"s";c.style.background=`hsl(${Math.random()*360},80%,70%)`;document.body.appendChild(c);setTimeout(()=>c.remove(),3800)}}
+function createStars(){for(let i=0;i<35;i++){let s=document.createElement("i");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";s.style.animationDelay=Math.random()*2.5+"s";$("stars").appendChild(s)}}
+createStars();
+let audioCtx,osc,gain,running=false,step=0,timer;
+const notes=[261.63,329.63,392,523.25,392,329.63,293.66,349.23,440,523.25,440,349.23];
+function tone(freq){osc=audioCtx.createOscillator();gain=audioCtx.createGain();osc.type="sine";osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(.055,audioCtx.currentTime+.03);gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.38);osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+.4)}
+function toggleMusic(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();if(running){running=false;clearInterval(timer);$("musicBtn").textContent="▶️ Putar";$("musicStatus").textContent="Musik dijeda.";return}running=true;$("musicBtn").textContent="⏸️ Jeda";$("musicStatus").textContent="Musik sedang diputar.";tone(notes[step++%notes.length]);timer=setInterval(()=>tone(notes[step++%notes.length]),420)}
+const birthday=new Date("2027-10-06T00:00:00");
+function countdown(){let now=new Date(),t=new Date(birthday);if(t<=now)t.setFullYear(now.getFullYear()+1);let d=t-now;$("days").textContent=Math.floor(d/86400000);$("hours").textContent=Math.floor(d/3600000)%24;$("minutes").textContent=Math.floor(d/60000)%60;$("seconds").textContent=Math.floor(d/1000)%60}
+countdown();setInterval(countdown,1000);
+</script>
+</body>
+</html>

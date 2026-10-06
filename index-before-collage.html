@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ min-height:100vh;
+ font-family:Arial,sans-serif;
+ background:
+ radial-gradient(circle at 20% 10%,#5c174d55,transparent 30%),
+ radial-gradient(circle at 80% 80%,#7b1d5d44,transparent 30%),
+ linear-gradient(135deg,#100713,#241027,#100713);
+ color:white;
+ overflow-x:hidden;
+}
+
+.container{
+ width:92%;
+ max-width:520px;
+ margin:auto;
+ padding:55px 0 70px;
+ text-align:center;
+ position:relative;
+ z-index:2;
+}
+
+.heart{
+ font-size:65px;
+ animation:beat 1.2s infinite;
+ filter:drop-shadow(0 0 20px #ff4fa3);
+}
+
+h1{
+ font-size:42px;
+ margin:12px 0 5px;
+ background:linear-gradient(90deg,#ff72b8,#fff,#ff72b8);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.subtitle{
+ color:#d9cbd6;
+ margin-bottom:30px;
+}
+
+.card{
+ background:#ffffff0d;
+ border:1px solid #ffffff20;
+ backdrop-filter:blur(15px);
+ border-radius:26px;
+ padding:25px;
+ margin-bottom:22px;
+ box-shadow:0 15px 50px #0007;
+}
+
+.photo{
+ width:100%;
+ height:230px;
+ border-radius:20px;
+ border:2px dashed #ff73b955;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:#bcaab9;
+ overflow:hidden;
+ background:#ffffff08;
+}
+
+.photo img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:none;
+}
+
+button{
+ border:0;
+ padding:14px 22px;
+ margin:7px;
+ border-radius:30px;
+ font-size:15px;
+ font-weight:bold;
+ color:white;
+ background:linear-gradient(90deg,#ff4d9f,#ff78bd);
+ box-shadow:0 8px 25px #ff4fa344;
+ cursor:pointer;
+}
+
+button:active{transform:scale(.95)}
+
+.letter{
+ display:none;
+ text-align:left;
+ line-height:1.8;
+ color:#eee;
+ animation:fade .7s ease;
+}
+
+.letter h2{
+ text-align:center;
+ color:#ff9dcc;
+}
+
+.countdown{
+ display:flex;
+ justify-content:center;
+ gap:8px;
+ margin-top:15px;
+}
+
+.time{
+ min-width:65px;
+ padding:12px 5px;
+ background:#ffffff0c;
+ border:1px solid #ffffff18;
+ border-radius:15px;
+}
+
+.time b{
+ display:block;
+ font-size:22px;
+ color:#ff9dcc;
+}
+
+.time small{color:#aaa}
+
+.signature{
+ text-align:center;
+ color:#ff9dcc;
+ margin-top:20px;
+}
+
+.float{
+ position:fixed;
+ bottom:-50px;
+ font-size:22px;
+ pointer-events:none;
+ z-index:1;
+ animation:floatUp linear forwards;
+}
+
+.confetti{
+ position:fixed;
+ width:8px;
+ height:8px;
+ top:-15px;
+ z-index:10;
+ animation:fall 3s linear forwards;
+}
+
+@keyframes beat{
+ 0%,100%{transform:scale(1)}
+ 50%{transform:scale(1.2)}
+}
+
+@keyframes fade{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes floatUp{
+ to{
+  transform:translateY(-110vh) rotate(500deg);
+  opacity:0;
+ }
+}
+
+@keyframes fall{
+ to{
+  transform:translateY(110vh) rotate(720deg);
+ }
+}
+
+@media(max-width:400px){
+ h1{font-size:34px}
+ .photo{height:190px}
+ .time{min-width:58px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="heart">❤️</div>
+
+<h1>Happy Birthday</h1>
+
+<div class="subtitle">
+Untuk seseorang yang spesial ✨
+</div>
+
+<div class="card">
+
+<div class="photo" id="photoBox">
+  📸 Tempat Foto
+</div>
+
+<p>
+Hari ini adalah hari spesialmu 🎂
+</p>
+
+<button onclick="openLetter()">
+💌 Buka Surat
+</button>
+
+<button onclick="celebrate()">
+🎁 Buka Hadiah
+</button>
+
+<div class="letter" id="letter">
+
+<h2>💌 Untuk Kamu</h2>
+
+<p>
+Selamat ulang tahun! 🎂❤️
+</p>
+
+<p>
+Semoga bertambahnya usia membawa
+lebih banyak kebahagiaan, kesehatan,
+kesuksesan, dan hal-hal baik dalam hidupmu.
+</p>
+
+<p>
+Semoga semua impian dan harapanmu
+satu per satu bisa terwujud.
+Tetap semangat, tetap tersenyum,
+dan jangan pernah berhenti menjadi
+versi terbaik dari dirimu sendiri. ✨
+</p>
+
+<p>
+Terima kasih sudah menjadi seseorang
+yang begitu berarti.
+Semoga hari ini menjadi hari yang
+indah dan selalu kamu ingat. ❤️
+</p>
+
+<div class="signature">
+With love ❤️
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>⏳ Hari Spesial</h2>
+
+<p>Menuju ulang tahun berikutnya 🎂</p>
+
+<div class="countdown">
+
+<div class="time">
+<b id="days">0</b>
+<small>Hari</small>
+</div>
+
+<div class="time">
+<b id="hours">0</b>
+<small>Jam</small>
+</div>
+
+<div class="time">
+<b id="minutes">0</b>
+<small>Menit</small>
+</div>
+
+<div class="time">
+<b id="seconds">0</b>
+<small>Detik</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>✨ Pesan Kecil</h2>
+
+<p style="line-height:1.8;color:#ddd">
+"Semoga hari ini dipenuhi senyum,
+kejutan kecil, dan banyak kebahagiaan.
+Happy Birthday! 🎂❤️"
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function openLetter(){
+ const letter=document.getElementById("letter");
+ letter.style.display="block";
+ letter.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function celebrate(){
+
+ for(let i=0;i<100;i++){
+
+  const c=document.createElement("div");
+
+  c.className="confetti";
+
+  c.style.left=Math.random()*100+"vw";
+
+  c.style.animationDelay=Math.random()*1.2+"s";
+
+  c.style.transform=
+  "rotate("+Math.random()*360+"deg)";
+
+  document.body.appendChild(c);
+
+  setTimeout(()=>c.remove(),4000);
+ }
+
+ openLetter();
+}
+
+function createFloat(){
+
+ const items=["❤️","💕","✨","💖","🌸","⭐"];
+
+ const el=document.createElement("div");
+
+ el.className="float";
+
+ el.textContent=
+ items[Math.floor(Math.random()*items.length)];
+
+ el.style.left=Math.random()*100+"vw";
+
+ el.style.animationDuration=
+ (6+Math.random()*6)+"s";
+
+ document.body.appendChild(el);
+
+ setTimeout(()=>el.remove(),13000);
+}
+
+setInterval(createFloat,800);
+
+
+/*
+ GANTI TANGGAL DI BAWAH
+ Contoh:
+ new Date("2027-10-06 00:00:00")
+*/
+
+const birthday=new Date("2027-10-06 00:00:00");
+
+function updateCountdown(){
+
+ const now=new Date();
+
+ let target=new Date(birthday);
+
+ if(target<=now){
+  target.setFullYear(now.getFullYear()+1);
+ }
+
+ const diff=target-now;
+
+ const d=Math.floor(diff/86400000);
+ const h=Math.floor(diff/3600000)%24;
+ const m=Math.floor(diff/60000)%60;
+ const s=Math.floor(diff/1000)%60;
+
+ document.getElementById("days").textContent=d;
+ document.getElementById("hours").textContent=h;
+ document.getElementById("minutes").textContent=m;
+ document.getElementById("seconds").textContent=s;
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+</script>
+
+</body>
+</html>
