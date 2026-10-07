@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<div class="special-text">
-</div>
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#6b205b55,transparent 28%),radial-gradient(circle at 80% 80%,#8d2b7040,transparent 30%),linear-gradient(135deg,#0d0711,#241027,#0d0711);color:#fff;overflow-x:hidden}
@@ -32,50 +30,6 @@ button:active{transform:scale(.96)}
 @media(max-width:400px){h1{font-size:34px}.envelope{width:210px}.flap{border-left-width:105px;border-right-width:105px}}
 </style>
 </head>
-<style>
-.special-text {
-    animation: romanticIn 2s ease-out forwards;
-    opacity: 0;
-    transform: translateY(25px) scale(.9);
-}
-
-@keyframes romanticIn {
-    0% {
-        opacity: 0;
-        transform: translateY(25px) scale(.9);
-        filter: blur(8px);
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(-4px) scale(1.03);
-        filter: blur(0);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
-}
-
-.special-text::after {
-    content: " 💕 ✨ 💕";
-    display: inline-block;
-    animation: sparkle 1.8s ease-in-out infinite alternate;
-}
-
-@keyframes sparkle {
-    from {
-        opacity: .45;
-        transform: scale(.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1.12);
-    }
-}
-</style>
-<body>
-<div class="stars" id="stars"></div>
 <div class="container">
 <div class="heart">❤️</div><h1>Happy Birthday</h1><div class="subtitle">Untuk seseorang yang spesial ✨</div>
 <div class="special-text">Untuk Dedeeee yang spesiall bangett 💗</div>
